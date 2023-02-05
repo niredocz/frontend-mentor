@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<ScanQR />} />
+        <Route path='/scan-qr-code' element={<ScanQR />} />
       </Routes>
     </div>
   );
