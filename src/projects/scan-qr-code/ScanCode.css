@@ -1,34 +1,29 @@
-.App {
-  text-align: center;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.bgScan {
   background: var(--bg-color);
 }
 
-.card {
+.bgScan .card {
   padding: 20px;
   max-width: 400px;
   background-color: #fff;
   border-radius: 15px;
 }
 
-.card img {
+.bgScan .card img {
   width: 100%;
   height: auto;
   border-radius: 10px;
 }
 
-.card h2 {
+.bgScan .card h2 {
   margin: 0;
 }
 
-.card p {
+.bgScan .card p {
   font-weight: 600;
   color: #848a96;
 }
 
-.cardBody {
+.bgScan .card .cardBody {
   padding: 25px;
 }

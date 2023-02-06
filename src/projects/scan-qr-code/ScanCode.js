@@ -1,10 +1,9 @@
-import './App.css';
+import './ScanCode.css';
 import CardImg from '../../img/image-qr-code.png'
-
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bgScan">
       <div className="card">
         <img src={CardImg} alt='' />
 
