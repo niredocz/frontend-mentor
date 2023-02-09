@@ -3,7 +3,7 @@ import CardImg from "./image-qr-code.png";
 
 function App() {
   return (
-    <div className="App bgScan">
+    <div className="App bgScan bg-[#3685fe]">
       <div className="card">
         <img src={CardImg} alt="" />
 
