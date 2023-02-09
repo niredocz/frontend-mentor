@@ -1,9 +1,23 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import { useEffect } from "react";
+
 import "./AdviceGenerator.css";
 
 const App = () => {
-  const numAdvice = 117;
-  const quoteAdvice = "Its Not easy";
+  const [numAdvice, setNumAdvice] = useState(0);
+  const [quoteAdvice, setQuoteAdvice] = useState("");
+  const api_url = "https://api.adviceslip.com/advice";
+  const refreshPage = () => {
+    window.location.reload();
+  };
+
+  useEffect(() => {
+    axios.get(api_url).then((res) => {
+      setNumAdvice(res.data.slip.id);
+      setQuoteAdvice(res.data.slip.advice);
+    });
+  }, []);
 
   return (
     <div className="App bgAdvice bg-[#313a48]">
@@ -20,7 +34,7 @@ const App = () => {
             height="16"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <g fill="none" fill-rule="evenodd">
+            <g fill="none" fillRule="evenodd">
               <path fill="#4F5D74" d="M0 8h196v1H0zM248 8h196v1H248z" />
               <g transform="translate(212)" fill="#CEE3E9">
                 <rect width="6" height="16" rx="3" />
@@ -30,7 +44,7 @@ const App = () => {
           </svg>
         </div>
         <div className="flex justify-center -mb-7">
-          <button className="btnDice">
+          <button className="btnDice" type="button" onClick={refreshPage}>
             <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M20 0H4a4.005 4.005 0 0 0-4 4v16a4.005 4.005 0 0 0 4 4h16a4.005 4.005 0 0 0 4-4V4a4.005 4.005 0 0 0-4-4ZM7.5 18a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm0-9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm4.5 4.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm4.5 4.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm0-9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"
