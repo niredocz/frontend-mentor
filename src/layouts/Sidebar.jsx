@@ -35,7 +35,7 @@ const thisSidebar = () => {
         <div className="h-full w-fit">
           <Sidebar aria-label="Sidebar with multi-level dropdown example">
             <div className="px-4 mb-4">
-              <h1 className="font-bold">Frontend Projects</h1>
+              <h1 className="font-bold">Daffa Projects</h1>
             </div>
             <Sidebar.Items>
               <Sidebar.ItemGroup>
