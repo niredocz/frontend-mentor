@@ -1,4 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap');
+
 .bgAdvice {
     min-height: 100vh;
     background-color: #1f2732;
+    font-family: 'Manrope', sans-serif;
+}
+
+.bgAdvice .card {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    color: hsl(150, 100%, 66%);
+    background-color: hsl(217, 19%, 24%);
+}
+
+.bgAdvice .card .cardBody {
+    padding: 30px;
+}
+
+.bgAdvice .card .cardBody .adviceCounter {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.bgAdvice .card .cardBody .adviceQuote {
+    font-size: 28px;
+    font-weight: 700;
+    color: #c9dce4;
+}
+
+.bgAdvice .card .btnDice {
+    width: 60px;
+    height: 60px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(150, 100%, 66%);
+    transition: .05s all ease-in-out;
+}
+
+.bgAdvice .card .btnDice svg {
+    transition: .05s all ease-in-out;
+}
+
+.bgAdvice .card .btnDice:hover,
+.bgAdvice .card .btnDice:focus {
+    box-shadow: 0 0 15px 10px hsla(150, 100%, 66%, 0.4);
+}
+
+.bgAdvice .card .btnDice:hover svg,
+.bgAdvice .card .btnDice:focus svg {
+    transform: rotate(45deg);
 }
