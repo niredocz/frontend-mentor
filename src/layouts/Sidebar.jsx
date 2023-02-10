@@ -43,20 +43,19 @@ const thisSidebar = () => {
               </Sidebar.ItemGroup>
 
               <Sidebar.ItemGroup>
-                {/* <Sidebar.Collapse label="Frontend Projects">
+                <Sidebar.Collapse label="Newbie">
                   <Sidebar.Item href="/scan-qr-code">
                     1. Scan QR Code
                   </Sidebar.Item>
+                </Sidebar.Collapse>
+                <Sidebar.Collapse label="Junior">
                   <Sidebar.Item href="/advice-generator">
-                    2. Advice Generator
+                    1. Advice Generator
                   </Sidebar.Item>
-                </Sidebar.Collapse> */}
-                <Sidebar.Item href="/scan-qr-code">
-                  1. Scan QR Code
-                </Sidebar.Item>
-                <Sidebar.Item href="/advice-generator">
-                  2. Advice Generator
-                </Sidebar.Item>
+                  <Sidebar.Item href="/tip-calculator-app">
+                    2. Tip Calculator App
+                  </Sidebar.Item>
+                </Sidebar.Collapse>
               </Sidebar.ItemGroup>
             </Sidebar.Items>
           </Sidebar>
