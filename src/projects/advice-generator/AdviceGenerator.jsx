@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 import "./AdviceGenerator.css";
 
-const App = () => {
+const AdviceGenerator = () => {
   const [numAdvice, setNumAdvice] = useState(0);
   const [quoteAdvice, setQuoteAdvice] = useState("");
   const api_url = "https://api.adviceslip.com/advice";
@@ -58,4 +58,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default AdviceGenerator;

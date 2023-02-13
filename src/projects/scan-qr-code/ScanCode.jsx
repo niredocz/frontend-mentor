@@ -1,7 +1,7 @@
 import "./ScanCode.css";
 import CardImg from "./image-qr-code.png";
 
-function App() {
+function ScanCode() {
   return (
     <div className="App bgScan bg-[#3685fe]">
       <div className="card">
@@ -19,4 +19,4 @@ function App() {
   );
 }
 
-export default App;
+export default ScanCode;
