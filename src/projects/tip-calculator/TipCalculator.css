@@ -1,0 +1,32 @@
+.bgTipCalculator .card {
+    background-color: #fff;
+    max-width: 600px;
+    border-radius: 15px;
+}
+
+.bgTipCalculator .formGroup {
+    position: relative;
+}
+
+.bgTipCalculator .formGroup input::-webkit-outer-spin-button,
+.bgTipCalculator .formGroup input::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+}
+
+.bgTipCalculator .formGroup input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.bgTipCalculator .formGroup input::placeholder {
+    color: #9ebbbd;
+}
+
+.bgTipCalculator .formGroup svg {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+}
