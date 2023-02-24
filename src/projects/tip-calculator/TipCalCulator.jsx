@@ -23,12 +23,10 @@ const TipCalCulator = () => {
   };
 
   const countTipAmount = () => {
-    let a = (parseFloat(billValue) * 1) / parseInt(peopleValue);
+    let a = (parseFloat(billValue) * 1) / parseFloat(peopleValue);
 
     if (customBillValue > 0) {
-      a = (parseFloat(billValue) * (customBillValue / 100)) / parseInt(peopleValue);
-
-      console.log(a)
+      a = (parseFloat(billValue) * (customBillValue / 100)) / parseFloat(peopleValue)
     }
 
     let roundedNum = Math.round(a * 100) / 100
@@ -37,12 +35,12 @@ const TipCalCulator = () => {
   };
 
   const countTotalPerPerson = () => {
-    let a = parseFloat(billValue) / parseInt(peopleValue)
+    let a = parseFloat(billValue) / parseFloat(peopleValue)
     let b = customBillValue
     let c = countTipAmount()
 
     if (b > 0) {
-      a = (parseFloat(billValue) + c) / parseInt(peopleValue)
+      a = (parseFloat(billValue) + c) / parseFloat(peopleValue)
     }
 
     let roundedNum = Math.round(a * 100) / 100
