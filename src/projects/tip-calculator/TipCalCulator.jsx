@@ -18,32 +18,46 @@ const TipCalCulator = () => {
     if (e.target.value != 0) {
       setPeopleValue(e.target.value);
     } else {
-      setPeopleValue(1)
+      setPeopleValue(1);
     }
   };
 
-  
-  
   const countTipAmount = () => {
-    let a = (billValue * 1) / peopleValue;
+    let a = (parseFloat(billValue) * 1) / parseInt(peopleValue);
 
     if (customBillValue > 0) {
-      a = (billValue * (customBillValue / 100)) / peopleValue;
+      a = (parseFloat(billValue) * (customBillValue / 100)) / parseInt(peopleValue);
+
+      console.log(a)
     }
 
-    return a.toFixed(2);
+    let roundedNum = Math.round(a * 100) / 100
+
+    return roundedNum;
   };
 
-  const handleReset = () => {
-    setBillValue(0.00)
-    setCustomBillValue(null)
-    setPeopleValue(1)
+  const countTotalPerPerson = () => {
+    let a = parseFloat(billValue) / parseInt(peopleValue)
+    let b = customBillValue
+    let c = countTipAmount()
+
+    if (b > 0) {
+      a = (parseFloat(billValue) + c) / parseInt(peopleValue)
+    }
+
+    let roundedNum = Math.round(a * 100) / 100
+
+    return roundedNum;
   }
 
   const tipAmount = countTipAmount();
+  const totalPerPerson = countTotalPerPerson();
 
-  // const totalPerPerson = (billInput.value / 5) + tipAmount
-  const totalPerPerson = "0.00";
+  const handleReset = () => {
+    setBillValue(0.0);
+    setCustomBillValue(null);
+    setPeopleValue(1);
+  };
 
   return (
     <>
