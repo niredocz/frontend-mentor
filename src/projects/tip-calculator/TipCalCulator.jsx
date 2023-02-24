@@ -25,14 +25,10 @@ const TipCalCulator = () => {
   
   
   const countTipAmount = () => {
-    const a = (billValue * (customBillValue / 100)) / peopleValue; // default sementara
+    let a = (billValue * 1) / peopleValue;
 
-    if (customBillValue != 0) {
-      // harusnya default (gabisa di return (block scope))
-      const a = (billValue * (customBillValue / 100)) / peopleValue;
-    } else {
-      // if custom input = null (gabisa di return (block scope))
-      const a = (billValue * 1) / peopleValue;
+    if (customBillValue > 0) {
+      a = (billValue * (customBillValue / 100)) / peopleValue;
     }
 
     return a.toFixed(2);
