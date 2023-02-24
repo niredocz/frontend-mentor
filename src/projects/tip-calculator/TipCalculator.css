@@ -1,24 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+.bgTipCalculator {
+    font-family: 'Space Mono', monospace;
+}
+
 .bgTipCalculator .card {
     background-color: #fff;
-    max-width: 600px;
-    border-radius: 15px;
+    max-width: 1000px;
+    /* border-radius: 15px; */
 }
 
 .bgTipCalculator .formGroup {
     position: relative;
 }
 
-.bgTipCalculator .formGroup input::-webkit-outer-spin-button,
-.bgTipCalculator .formGroup input::-webkit-inner-spin-button {
+.bgTipCalculator input::-webkit-outer-spin-button,
+.bgTipCalculator input::-webkit-inner-spin-button {
     appearance: none;
     margin: 0;
 }
 
-.bgTipCalculator .formGroup input[type=number] {
+.bgTipCalculator input[type=number] {
     -moz-appearance: textfield;
 }
 
-.bgTipCalculator .formGroup input::placeholder {
+.bgTipCalculator input::placeholder {
     color: #9ebbbd;
 }
 
