@@ -55,6 +55,9 @@ const TipCalCulator = () => {
     setBillValue(0.0);
     setCustomBillValue(null);
     setPeopleValue(1);
+    document.getElementById('bill-input').value = ''
+    document.getElementById('custom-input').value = ''
+    document.getElementById('number-input').value = 1
   };
 
   return (
