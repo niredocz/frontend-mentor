@@ -6,6 +6,11 @@ const TipCalCulator = () => {
   const [billValue, setBillValue] = useState(0.0);
   const [customBillValue, setCustomBillValue] = useState(null);
   const [peopleValue, setPeopleValue] = useState(1);
+  const [isRadioChecked, setIsRadioChecked] = useState(false);
+
+  function handleRadioChange() {
+    setIsRadioChecked(true);
+  }
   
   const handleBillChange = (e) => {
     setBillValue(e.target.value);
@@ -63,6 +68,10 @@ const TipCalCulator = () => {
     document.getElementById("number-input").value = 1;
   };
 
+  const tes = document.getElementsByClassName('peer')
+
+  // if (tes === '')
+
   return (
     <>
       <div className="App bgTipCalculator bg-[#c5e4e7]">
@@ -95,45 +104,48 @@ const TipCalCulator = () => {
                     <h5 className="text-left font-semibold text-lg mb-2">
                       Select Tip %
                     </h5>
-                    <div className="grid md:grid-cols-3 md:gap-3">
-                      <button
-                        className="w-full py-3 px-2 rounded-md font-semibold text-2xl text-white bg-[#00474b] hover:bg-[#9fe8df] hover:text-green-900"
-                        type="button"
-                        value={5}>
-                        5%
-                      </button>
-                      <button
-                        className="w-full py-3 px-2 rounded-md font-semibold text-2xl text-white bg-[#00474b] hover:bg-[#9fe8df] hover:text-green-900"
-                        type="button"
-                        value={10}>
-                        10%
-                      </button>
-                      <button
-                        className="w-full py-3 px-2 rounded-md font-semibold text-2xl text-white bg-[#00474b] hover:bg-[#9fe8df] hover:text-green-900"
-                        type="button"
-                        value={15}>
-                        15%
-                      </button>
-                      <button
-                        className="w-full py-3 px-2 rounded-md font-semibold text-2xl text-white bg-[#00474b] hover:bg-[#9fe8df] hover:text-green-900"
-                        type="button"
-                        value={25}>
-                        25%
-                      </button>
-                      <button
-                        className="w-full py-3 px-2 rounded-md font-semibold text-2xl text-white bg-[#00474b] hover:bg-[#9fe8df] hover:text-green-900"
-                        type="button"
-                        value={50}>
-                        50%
-                      </button>
-                      <input
-                        type="number"
-                        id="custom-input"
-                        onChange={handleCustomBillChange}
-                        className="w-full bg-gray-50 border border-gray-300 text-green-800 text-center text-xl font-bold rounded-lg focus:ring-green-400 focus:border-green-400 block p-1.5 inputCustom cursor-pointer"
-                        placeholder="Custom"
-                      />
-                    </div>
+                    <ul className="grid md:grid-cols-3 md:gap-3">
+                      <li>
+                        <input type="radio" id="tip-5" name="hosting" value="5" className="hidden peer" checked={isRadioChecked} onChange={handleRadioChange} required />
+                        <label htmlFor="tip-5" className="block cursor-pointer w-full py-3 px-2 rounded-md font-semibold text-2xl text-white bg-[#00474b] hover:bg-[#9fe8df] hover:text-green-900 peer-checked:bg-[#9fe8df] peer-checked:text-green-900">                           
+                          5%
+                        </label>
+                      </li>
+                      <li>
+                        <input type="radio" id="tip-10" name="hosting" value="10" className="hidden peer" checked={isRadioChecked} onChange={handleRadioChange} required />
+                        <label htmlFor="tip-10" className="block cursor-pointer w-full py-3 px-2 rounded-md font-semibold text-2xl text-white bg-[#00474b] hover:bg-[#9fe8df] hover:text-green-900 peer-checked:bg-[#9fe8df] peer-checked:text-green-900">                           
+                          10%
+                        </label>
+                      </li>
+                      <li>
+                        <input type="radio" id="tip-15" name="hosting" value="15" className="hidden peer" checked={isRadioChecked} onChange={handleRadioChange} required />
+                        <label htmlFor="tip-15" className="block cursor-pointer w-full py-3 px-2 rounded-md font-semibold text-2xl text-white bg-[#00474b] hover:bg-[#9fe8df] hover:text-green-900 peer-checked:bg-[#9fe8df] peer-checked:text-green-900">                           
+                          15%
+                        </label>
+                      </li>
+                      <li>
+                        <input type="radio" id="tip-25" name="hosting" value="25" className="hidden peer" checked={isRadioChecked} onChange={handleRadioChange} required />
+                        <label htmlFor="tip-25" className="block cursor-pointer w-full py-3 px-2 rounded-md font-semibold text-2xl text-white bg-[#00474b] hover:bg-[#9fe8df] hover:text-green-900 peer-checked:bg-[#9fe8df] peer-checked:text-green-900">                           
+                          25%
+                        </label>
+                      </li>
+                      <li>
+                        <input type="radio" id="tip-50" name="hosting" value="50" className="hidden peer" checked={isRadioChecked} onChange={handleRadioChange} required />
+                        <label htmlFor="tip-50" className="block cursor-pointer w-full py-3 px-2 rounded-md font-semibold text-2xl text-white bg-[#00474b] hover:bg-[#9fe8df] hover:text-green-900 peer-checked:bg-[#9fe8df] peer-checked:text-green-900">                           
+                          50%
+                        </label>
+                      </li>
+                      <li>
+                        <input
+                          type="number"
+                          id="custom-input"
+                          onChange={handleCustomBillChange}
+                          disabled={isRadioChecked}
+                          className="w-full h-full bg-gray-50 border border-gray-300 text-green-800 text-center text-xl font-bold rounded-lg focus:ring-green-400 focus:border-green-400 block p-1.5 inputCustom cursor-pointer"
+                          placeholder="Custom"
+                        />
+                      </li>
+                    </ul>
                   </div>
 
                   <div className="numberOfPeople mb-5">
