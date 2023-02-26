@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import "./TipCalculator.css";
+import ResetButton from "./resetButton";
 
 const TipCalCulator = () => {
-  const [billValue, setBillValue] = useState(0.00);
+  const [billValue, setBillValue] = useState(0.0);
   const [customBillValue, setCustomBillValue] = useState(null);
   const [peopleValue, setPeopleValue] = useState(1);
-
+  
   const handleBillChange = (e) => {
     setBillValue(e.target.value);
   };
-
+  
   const handleCustomBillChange = (e) => {
     setCustomBillValue(e.target.value);
   };
-
+  
   const handlePeopleChange = (e) => {
     if (e.target.value != 0) {
       setPeopleValue(e.target.value);
@@ -21,43 +22,45 @@ const TipCalCulator = () => {
       setPeopleValue(1);
     }
   };
-
+  
   const countTipAmount = () => {
     let a = (parseFloat(billValue) * 1) / parseFloat(peopleValue);
-
+  
     if (customBillValue > 0) {
-      a = (parseFloat(billValue) * (customBillValue / 100)) / parseFloat(peopleValue)
+      a =
+        (parseFloat(billValue) * (customBillValue / 100)) /
+        parseFloat(peopleValue);
     }
-
-    let roundedNum = Math.round(a * 100) / 100
-
+  
+    let roundedNum = Math.round(a * 100) / 100;
+  
     return roundedNum;
   };
-
+  
   const countTotalPerPerson = () => {
-    let a = parseFloat(billValue) / parseFloat(peopleValue)
-    let b = customBillValue
-    let c = countTipAmount()
-
+    let a = parseFloat(billValue) / parseFloat(peopleValue);
+    let b = customBillValue;
+    let c = countTipAmount();
+  
     if (b > 0) {
-      a = (parseFloat(billValue) + c) / parseFloat(peopleValue)
+      a = (parseFloat(billValue) + c) / parseFloat(peopleValue);
     }
-
-    let roundedNum = Math.round(a * 100) / 100
-
+  
+    let roundedNum = Math.round(a * 100) / 100;
+  
     return roundedNum;
-  }
-
+  };
+  
   const tipAmount = countTipAmount();
   const totalPerPerson = countTotalPerPerson();
-
+  
   const handleReset = () => {
     setBillValue(0.0);
     setCustomBillValue(null);
     setPeopleValue(1);
-    document.getElementById('bill-input').value = ''
-    document.getElementById('custom-input').value = ''
-    document.getElementById('number-input').value = 1
+    document.getElementById("bill-input").value = "";
+    document.getElementById("custom-input").value = "";
+    document.getElementById("number-input").value = 1;
   };
 
   return (
@@ -179,12 +182,7 @@ const TipCalCulator = () => {
                     </div>
                   </div>
 
-                  <button
-                    type="button"
-                    onClick={handleReset}
-                    className="btnReset w-full py-3 px-2 mt-auto rounded-md font-semibold text-2xl transition-all text-[#00474b] bg-[#0d686d] hover:bg-[#9fe8df] hover:text-[#0d686d]">
-                    RESET
-                  </button>
+                  <ResetButton click={handleReset}/>
                 </div>
               </div>
             </div>
