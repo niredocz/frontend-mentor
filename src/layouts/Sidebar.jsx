@@ -55,6 +55,9 @@ const thisSidebar = () => {
                   <Sidebar.Item href="/tip-calculator-app">
                     2. Tip Calculator App
                   </Sidebar.Item>
+                  <Sidebar.Item href="/rest-countries-api">
+                    3. Rest Countries API
+                  </Sidebar.Item>
                 </Sidebar.Collapse>
               </Sidebar.ItemGroup>
             </Sidebar.Items>
