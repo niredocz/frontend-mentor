@@ -112,8 +112,8 @@ const TipCalCulator = () => {
       <div className="App bgTipCalculator bg-[#c5e4e7]">
         <div className="container">
           <div className="card mx-auto rounded-3xl">
-            <div className="cardBody p-10">
-              <div className="flex gap-10">
+            <div className="cardBody p-5 lg:p-10">
+              <div className="flex flex-col lg:flex-row gap-10">
                 <div className="form lg:w-1/2">
                   <div className="bill mb-5">
                     <h5 className="text-left font-semibold text-lg mb-2">
@@ -141,7 +141,7 @@ const TipCalCulator = () => {
                     <h5 className="text-left font-semibold text-lg mb-2">
                       Select Tip %
                     </h5>
-                    <ul className="grid md:grid-cols-3 md:gap-3">
+                    <ul className="grid grid-cols-3 gap-3">
                       <li>
                         <input
                           type="radio"
