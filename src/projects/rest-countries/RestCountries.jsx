@@ -12,7 +12,6 @@ const RestCountries = () => {
         const responseFetch = await fetch(api);
         const awaitRes = await responseFetch.json();
         setDataCountry(awaitRes);
-        console.log(awaitRes)
       } catch (err) {
         console.log(err);
       }
