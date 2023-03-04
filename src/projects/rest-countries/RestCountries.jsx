@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./RestCountries.css";
+import FlagCard from "./FlagCard";
 
 const RestCountries = () => {
   const api = "https://restcountries.com/v3.1/all";
@@ -12,7 +13,7 @@ const RestCountries = () => {
         const responseFetch = await fetch(api);
         const awaitRes = await responseFetch.json();
         setDataCountry(awaitRes);
-        console.log(awaitRes)
+        console.log(awaitRes);
       } catch (err) {
         console.log(err);
       }
@@ -87,7 +88,9 @@ const RestCountries = () => {
                 <select
                   id="countries"
                   className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                  <option defaultValue disabled>Filter by Region</option>
+                  <option defaultValue disabled>
+                    Filter by Region
+                  </option>
                   <option value="US">United States</option>
                   <option value="CA">Canada</option>
                   <option value="FR">France</option>
@@ -99,13 +102,12 @@ const RestCountries = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-5">
               {dataCountry.map((res, i) => {
                 return (
-                  <div className="flagCard bg-white rounded-md shadow-md text-center" key={i}>
-                    <img className="imgCard" src={res.flags.svg} alt={res.flag} />
-
-                    <div className="content p-4">
-                      <h1 className="text-lg">{res.name.official}</h1>
-                    </div>
-                  </div>
+                  <FlagCard
+                    key={i}
+                    src={res.flags.svg}
+                    alt={res.flag}
+                    title={res.name.official}
+                  />
                 );
               })}
             </div>
