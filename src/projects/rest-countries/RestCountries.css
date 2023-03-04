@@ -3,3 +3,9 @@
 .bgRestCountries {
 	min-height: 100vh;
 }
+
+.flagCard .imgCard {
+	height: 160px;
+	width: 100%;
+	object-fit: contain;
+}
