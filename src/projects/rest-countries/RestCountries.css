@@ -5,7 +5,13 @@
 }
 
 .flagCard .imgCard {
-	height: 160px;
+	height: 180px;
 	width: 100%;
-	object-fit: contain;
+	object-fit: cover;
+}
+
+@media (min-width: 1600px) {
+	.flagCard .imgCard {
+		height: 220px;
+	}
 }
