@@ -8,7 +8,8 @@ const FlagCard = ({ src, alt, countryName, population, region, capital }) => {
       <div className="content p-4">
         <h1 className="text-lg font-bold mb-2">{countryName}</h1>
         <h5>
-          <span className="font-bold">Population:</span> {population}
+          <span className="font-bold">Population:</span>{" "}
+          {population.toLocaleString("en-US")}
         </h5>
         <h5>
           <span className="font-bold">Region:</span> {region}

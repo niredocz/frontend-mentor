@@ -5,6 +5,7 @@ import FlagCard from "./FlagCard";
 const RestCountries = () => {
   const [dataCountry, setDataCountry] = useState([]);
   const [dataSearch, setDataSearch] = useState("");
+  const [dataRegion, setDataRegion] = useState("");
   const [isDarkMode, setDarkMode] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -13,24 +14,40 @@ const RestCountries = () => {
     setDataSearch(value);
   };
 
-  useEffect(() => {
-    const getData = async () => {
-      let searchValue = "";
+  const handleRegion = (e) => {
+    let value = e.target.value;
 
-      if (dataSearch !== "") {
+    if (value == 'all') {
+      value = `/all`
+    } else {
+      value = `/region/${value}`
+    }
+
+    setDataRegion(value);
+  };
+
+  useEffect(() => {
+    async function getData() {
+      let searchValue;
+
+      if (dataSearch) {
         searchValue = `/name/${dataSearch}`;
+      } else if (dataRegion) {
+        searchValue = `${dataRegion}`;
       } else {
         searchValue = `/all`;
       }
-      console.log(searchValue);
 
       try {
         setLoading(true);
         const response = await fetch(
           `https://restcountries.com/v3.1${searchValue}`
         );
-        const awaitRes = await response.json();
-        const slicedCountry = awaitRes.slice(0, 50);
+        const country = await response.json();
+
+        // slicing to show the result just 50 cards
+        const slicedCountry = country.slice(0, 50);
+
         setDataCountry(slicedCountry);
         setLoading(false);
       } catch (err) {
@@ -39,7 +56,7 @@ const RestCountries = () => {
     };
 
     getData();
-  }, [dataSearch]);
+  }, [dataSearch, dataRegion]);
 
   const handleDarkMode = () => {
     isDarkMode === false ? setDarkMode(true) : setDarkMode(false);
@@ -107,14 +124,17 @@ const RestCountries = () => {
               <div className="w-80">
                 <select
                   id="countries"
+                  onChange={handleRegion}
                   className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                   <option defaultValue disabled>
                     Filter by Region
                   </option>
-                  <option value="US">United States</option>
-                  <option value="CA">Canada</option>
-                  <option value="FR">France</option>
-                  <option value="DE">Germany</option>
+                  <option value="all">All Region</option>
+                  <option value="africa">Africa</option>
+                  <option value="america">America</option>
+                  <option value="asia">Asia</option>
+                  <option value="europe">Europe</option>
+                  <option value="oceania">Oceania</option>
                 </select>
               </div>
             </div>
